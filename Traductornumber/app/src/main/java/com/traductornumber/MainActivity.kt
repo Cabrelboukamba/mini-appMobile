@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         }
         val spinnerLangues: Spinner = findViewById(R.id.spinnerLangues)
 
-        val langues = arrayOf("Anglais", "Espagnol", "Italien", "Allemand", "Français")
+        val langues = arrayOf("Anglais", "Espagnol", "Italien", "Allemand", "Français", "Nzebi")
 
         val adapter = ArrayAdapter(
             this,
@@ -99,6 +99,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
     fun frenshTraduct(text: String): String {
         return text.replace("1", "un")
             .replace("2", "deux")
@@ -159,6 +160,17 @@ class MainActivity : AppCompatActivity() {
             .replace("9", "neun")
             .replace("0", "null")
     }
+    fun nzebiTraduct(text: String): String {
+        return text.replace("1", "mo")
+            .replace("2", "bioli")
+            .replace("3", "bitate")
+            .replace("4", "bina")
+            .replace("5", "bitane")
+            .replace("6", "bisamna")
+            .replace("7", "tsambe")
+            .replace("8", "pombo")
+            .replace("9", "l'bwa")
+    }
     fun traduct(text: String, langue: String): String {
         if (langue == "Anglais") {
             return englishTraduct(text)
@@ -168,6 +180,9 @@ class MainActivity : AppCompatActivity() {
             return italianTraduct(text)
         } else if (langue == "Allemand") {
             return germanTraduct(text)
+        }
+        else if (langue == "Nzebi") {
+            return nzebiTraduct(text)
         }
         return frenshTraduct(text)
     }
